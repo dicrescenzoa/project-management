@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PMA - NEW</title>
+</head>
+<body>
+    <form action="/projects/save" th:object="${project}" method="POST">
+        <input type="text" placeholder="Project name" th:field="${project.name}" />
+
+        <select th:field="${project.stage}">
+            <option th:value="NOTSTARTED">NOTSTARTED</option>
+            <option th:value="INPROGRESS">INPROGRESS</option>
+            <option th:value="COMPLETED">COMPLETED</option>
+        </select>
+
+        <textarea placeholder="Description" th:field="${project.description}"></textarea>
+
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
