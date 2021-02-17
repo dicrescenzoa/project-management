@@ -24,12 +24,12 @@ public class ProjectController {
         return "new-project";
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/save", produces = "application/json")
     public String createProjectForm(Project project, Model model) {
         Gson gson = new Gson();
         String userJson = gson.toJson(project);
         System.out.println(userJson);
         projectRepo.save(project);
-        return "redirect:/projects/new";
+        return userJson;
     }
 }
