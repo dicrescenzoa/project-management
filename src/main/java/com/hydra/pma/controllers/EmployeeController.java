@@ -28,9 +28,9 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/findAllByFullName", method = RequestMethod.GET)
-    public ResponseEntity<Iterable<Employee>> findAllByFullName(@RequestParam("firstname") String firstname, @RequestParam("lastname") String lastname) {
-        Pageable pageable = PageRequest.of(0, 10, Sort.by("firstname"));
-        Iterable<Employee> employees = employeeRepo.findAllByFirstname(firstname);
+    public ResponseEntity<Iterable<Employee>> findAllByFullName(@RequestParam String firstname, @RequestParam String lastname) {
+        Pageable pageable = PageRequest.of(0, 10);
+        Iterable<Employee> employees = employeeRepo.findAllByFirstnameContainsAndLastnameContains(firstname, lastname, pageable);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity(employees, headers, HttpStatus.OK);
     }
