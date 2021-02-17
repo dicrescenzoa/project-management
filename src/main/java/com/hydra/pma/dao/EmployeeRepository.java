@@ -1,7 +1,11 @@
 package com.hydra.pma.dao;
 
 import com.hydra.pma.entities.Employee;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+import java.util.List;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    List<Employee> findAllByFirstname(String firstname);
 }
