@@ -1,5 +1,7 @@
 package com.hydra.pma.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Project {
     private String description;
 
     @OneToMany(mappedBy = "project")
+    @JsonIgnore
     private List<Employee> employees;
 
     public Project() {

@@ -1,11 +1,10 @@
-package com.hydra.pma.controllers;
+package com.hydra.pma.api.controllers;
 
 import com.hydra.pma.dao.EmployeeRepository;
 import com.hydra.pma.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/employees")
-public class EmployeeController {
+@RequestMapping("/api/employees")
+public class EmployeeApiController {
     @Autowired
     EmployeeRepository employeeRepo;
 
