@@ -3,6 +3,7 @@ package com.hydra.pma.api.controllers;
 import com.hydra.pma.dao.EmployeeRepository;
 import com.hydra.pma.dao.ProjectRepository;
 import com.hydra.pma.dto.EmployeeDto;
+import com.hydra.pma.dto.ProjectDto;
 import com.hydra.pma.entities.Employee;
 import com.hydra.pma.entities.Project;
 import com.hydra.pma.services.ProjectService;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @RestController
@@ -30,18 +32,18 @@ public class ProjectApiController {
         return projectRepo.findAll();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    public ProjectDto getProject(@PathVariable("id") long id) {
+        Project project = projectRepo.findById(id).orElseThrow(() -> new EntityNotFoundException());
+        return projectService.getDto(project);
+    }
+
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Project createProject(Project project, @RequestParam List<Long> employees) {
-        Project newProject = projectRepo.save(project);
-
-        List<Employee> assignedEmployees = employeeRepo.findAllById(employees);
-        for (int i = 0; i < assignedEmployees.size(); i++) {
-            Employee current = assignedEmployees.get(i);
-            current.setProject(newProject);
-            employeeRepo.save(current);
-        }
-
-        return newProject;
+    public ProjectDto createProject(ProjectDto projectDto) {
+        Project newProject = projectService.getProject(projectDto);
+        projectRepo.save(newProject);
+        return projectService.getDto(newProject);
     }
 }

@@ -6,15 +6,6 @@ public class EmployeeDto {
     private String lastname;
     private String email;
 
-    public EmployeeDto(){}
-
-    public EmployeeDto(long employeeId, String firstname, String lastname, String email) {
-        this.employeeId = employeeId;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-    }
-
     public long getEmployeeId() {
         return employeeId;
     }

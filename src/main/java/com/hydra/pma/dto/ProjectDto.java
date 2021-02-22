@@ -1,19 +1,12 @@
 package com.hydra.pma.dto;
 
+import java.util.List;
+
 public class ProjectDto {
     private long projectId;
     private String name;
     private String stage;
     private String description;
-
-    public ProjectDto(){}
-
-    public ProjectDto(long projectId, String name, String stage, String description) {
-        this.projectId = projectId;
-        this.name = name;
-        this.stage = stage;
-        this.description = description;
-    }
 
     public long getProjectId() {
         return projectId;
