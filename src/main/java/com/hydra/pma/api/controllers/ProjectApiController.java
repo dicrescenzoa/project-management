@@ -41,9 +41,15 @@ public class ProjectApiController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public ProjectDto createProject(ProjectDto projectDto) {
-        Project newProject = projectService.getProject(projectDto);
-        projectRepo.save(newProject);
-        return projectService.getDto(newProject);
+    public Project createProject(Project project) {
+        Project newProject = projectRepo.save(project);
+        List<Employee> assignedEmployee = newProject.getEmployees();
+        for (int i = 0; i < assignedEmployee.size(); i++) {
+            Employee current = assignedEmployee.get(i);
+            current.setProject(newProject);
+            employeeRepo.save(current);
+        }
+
+        return newProject;
     }
 }

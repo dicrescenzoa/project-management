@@ -1,5 +1,7 @@
 package com.hydra.pma.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Employee {
     private String lastname;
     private String email;
 
+    @JsonBackReference
     @ManyToOne(cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,

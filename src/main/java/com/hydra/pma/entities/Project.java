@@ -1,6 +1,7 @@
 package com.hydra.pma.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.hydra.pma.dao.EmployeeRepository;
 import com.hydra.pma.dto.EmployeeDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class Project {
     private String stage; //NOTSTARTED, COMPLETED, INPROGRESS
     private String description;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "project")
     private List<Employee> employees;
 
