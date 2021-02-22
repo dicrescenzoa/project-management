@@ -1,12 +1,16 @@
 package com.hydra.pma.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hydra.pma.dao.EmployeeRepository;
+import com.hydra.pma.dto.EmployeeDto;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Project {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long projectId;
@@ -16,7 +20,6 @@ public class Project {
     private String description;
 
     @OneToMany(mappedBy = "project")
-    @JsonIgnore
     private List<Employee> employees;
 
     public Project() {

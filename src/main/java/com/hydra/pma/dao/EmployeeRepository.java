@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     List<Employee> findAllByFirstnameContainsAndLastnameContains(String firstname, String lastname, Pageable pageable);
+    List<Employee> findAllByProject(long projectId);
 }

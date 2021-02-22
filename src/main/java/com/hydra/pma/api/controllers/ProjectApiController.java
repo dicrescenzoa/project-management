@@ -2,8 +2,10 @@ package com.hydra.pma.api.controllers;
 
 import com.hydra.pma.dao.EmployeeRepository;
 import com.hydra.pma.dao.ProjectRepository;
+import com.hydra.pma.dto.EmployeeDto;
 import com.hydra.pma.entities.Employee;
 import com.hydra.pma.entities.Project;
+import com.hydra.pma.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,9 @@ public class ProjectApiController {
 
     @Autowired
     EmployeeRepository employeeRepo;
+
+    @Autowired
+    private ProjectService projectService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
