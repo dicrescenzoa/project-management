@@ -1,10 +1,6 @@
 package com.hydra.pma.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.hydra.pma.dao.EmployeeRepository;
-import com.hydra.pma.dto.EmployeeDto;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.List;

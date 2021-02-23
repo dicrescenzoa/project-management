@@ -1,11 +1,8 @@
 package com.hydra.pma.mapper;
 
-import com.hydra.pma.dto.EmployeeDto;
 import com.hydra.pma.dto.ProjectDto;
-import com.hydra.pma.entities.Employee;
 import com.hydra.pma.entities.Project;
 import com.hydra.pma.services.EmployeeService;
-import com.hydra.pma.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
