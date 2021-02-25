@@ -26,15 +26,19 @@ public class BootStrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Author author1 = new Author("name1", "lastname1");
         Book book1 = new Book("booktitle", "bookisbn");
+
         Publisher publisher1 = new Publisher("name", "street", "milan", "italy", "nope");
+        publisherRepository.save(publisher1);
+
 
         author1.getBooks().add(book1);
         book1.getAuthors().add(author1);
 
+        book1.setPublisher(publisher1);
+        publisher1.getBooks().add(book1);
+
         authorRepository.save(author1);
         bookRepository.save(book1);
         publisherRepository.save(publisher1);
-
-        System.out.println("Started with boostrap");
     }
 }
