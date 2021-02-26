@@ -1,8 +1,12 @@
 package com.hydra.pma.mapper;
 
 import com.hydra.pma.dto.BookDto;
+import com.hydra.pma.entities.Author;
 import com.hydra.pma.entities.Book;
 import org.springframework.stereotype.Component;
+
+import java.lang.reflect.Array;
+import java.util.List;
 
 @Component
 public class BookMapper {
