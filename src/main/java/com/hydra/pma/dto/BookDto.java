@@ -1,6 +1,5 @@
 package com.hydra.pma.dto;
 
-import com.hydra.pma.entities.Author;
 import lombok.*;
 
 import java.util.List;

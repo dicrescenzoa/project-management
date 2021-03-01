@@ -2,6 +2,8 @@ package com.hydra.pma.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 public class AuthorDto {
     private Long id;

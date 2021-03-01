@@ -8,14 +8,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BookService {
-    @Autowired
-    private BookMapper bookMapper;
 
     public BookDto getDto(Book book) {
-        return bookMapper.convert(book);
+        return BookMapper.INSTANCE.bookToBookDto(book);
     }
 
     public Book getBook(BookDto dto) {
-        return bookMapper.convert(dto);
+        return BookMapper.INSTANCE.bookDtoToBook(dto);
     }
 }
