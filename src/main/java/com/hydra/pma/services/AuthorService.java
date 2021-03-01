@@ -11,11 +11,9 @@ import java.util.List;
 
 @Service
 public class AuthorService {
-    @Autowired
-    private AuthorMapper authorMapper;
 
     public AuthorDto getAuthorDto(Author author) {
-        return authorMapper.convert(author);
+        return AuthorMapper.INSTANCE.authorToAuthorDto(author);
     }
 
     public List<AuthorDto> getAuthorDtoList(List<Author> authorList) {
@@ -25,7 +23,7 @@ public class AuthorService {
     }
 
     private void populateDtoList(Author author, List<AuthorDto> authorDtoList) {
-        AuthorDto dto = authorMapper.convert(author);
+        AuthorDto dto = AuthorMapper.INSTANCE.authorToAuthorDto(author);
         authorDtoList.add(dto);
     }
 }
