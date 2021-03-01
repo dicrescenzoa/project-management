@@ -14,7 +14,11 @@ public class AuthorService {
     @Autowired
     private AuthorMapper authorMapper;
 
-    public List<AuthorDto> getDtoList(List<Author> authorList) {
+    public AuthorDto getAuthorDto(Author author) {
+        return authorMapper.convert(author);
+    }
+
+    public List<AuthorDto> getAuthorDtoList(List<Author> authorList) {
         List<AuthorDto> authorDtoList = new ArrayList<>();
         authorList.forEach((author) -> populateDtoList(author, authorDtoList));
         return authorDtoList;

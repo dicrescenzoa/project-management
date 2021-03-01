@@ -31,7 +31,7 @@ public class BookController {
         }
         Book book = bookOpt.get();
         BookDto bookDto = bookService.getDto(book);
-        bookDto.setAuthors(authorService.getDtoList(book.getAuthors()));
+        bookDto.setAuthors(authorService.getAuthorDtoList(book.getAuthors()));
         return ResponseEntity.ok(bookDto);
     }
 }

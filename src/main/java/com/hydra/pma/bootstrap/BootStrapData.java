@@ -30,7 +30,6 @@ public class BootStrapData implements CommandLineRunner {
         Publisher publisher1 = new Publisher("name", "street", "milan", "italy", "nope");
         publisherRepository.save(publisher1);
 
-
         author1.getBooks().add(book1);
         book1.getAuthors().add(author1);
 

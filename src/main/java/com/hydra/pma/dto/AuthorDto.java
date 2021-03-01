@@ -1,9 +1,12 @@
 package com.hydra.pma.dto;
 
+import java.util.List;
+
 public class AuthorDto {
     private Long id;
     private String firstname;
     private String lastname;
+    private List<BookDto> books;
 
     public AuthorDto() {
     }
@@ -11,6 +14,14 @@ public class AuthorDto {
     public AuthorDto(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+
+    public List<BookDto> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<BookDto> books) {
+        this.books = books;
     }
 
     public Long getId() {
