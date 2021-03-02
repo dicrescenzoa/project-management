@@ -11,8 +11,7 @@ public class BookDto {
     private String isbn;
     private List<AuthorDto> authors;
 
-    public BookDto() {
-    }
+    public BookDto() {}
 
     public BookDto(String title, String isbn) {
         this.title = title;

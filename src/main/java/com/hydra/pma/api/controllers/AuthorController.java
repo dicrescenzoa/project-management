@@ -22,12 +22,10 @@ public class AuthorController {
 
     @RequestMapping(value = "/{id}")
     public ResponseEntity<AuthorDto> getAuthor(@PathVariable("id") long id) {
-        Optional<Author> authorOpt = authorRepository.findById(id);
-        if(authorOpt.isEmpty()) {
+        Optional<AuthorDto> authorDto = authorService.getAuthorById(id);
+        if(authorDto.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        Author author = authorOpt.get();
-        AuthorDto authorDto = authorService.getAuthorDto(author);
-        return ResponseEntity.ok(authorDto);
+        return ResponseEntity.ok(authorDto.get());
     }
 }
